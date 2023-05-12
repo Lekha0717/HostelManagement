@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename = '/Admin-login.css')}}">
+    <link rel="stylesheet" href="boxicons-master/css/boxicons.css">
+
+    <title> Admin Login</title>
+    <style>
+        
+        body{
+            background-image: url('https://q-xx.bstatic.com/xdata/images/hotel/840x460/331509919.jpg?k=5f74229ecea8420ac01b47726c02ec8d9b86dfd6374642d499cac9fa51db7066&o=');
+            background-size: cover;
+            height: 100vh;
+        }
+        .all{
+            background-color: aliceblue;
+            margin-top: 10%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 30%;
+        }
+    </style>
+
+</head>
+<body>
+   <div class="box">
+    <div class="container">
+        <center>
+        <form action="{{url_for('validate')}}" method="POST">    
+<div class="all">
+        <div class="top">
+            
+            <h1>Admin Login</h1>
+        </div>
+
+        <div class="input-field">
+            <input type="text" class="input" name="userid" placeholder="Enter your userid" required ><br><br>
+            <i class='bx bx-user' ></i>
+        </div>
+
+        <div class="input-field">
+            <input type="Password" class="input"name="password" placeholder="Enter your password" required ><br><br>
+            <i class='bx bx-lock-alt'></i>
+        </div>
+
+        <div class="input-field-login">
+          <button>submit</button>
+        </div></a>
+            <div class="two">
+                <label><a href="{{url_for('forget')}}">Forgot password?</a></label>
+            </div>
+        </form>
+        </center>
+        </div>
+    </div>
+</div>
+</div>  
+</body>
+</html>

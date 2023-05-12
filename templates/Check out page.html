@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOSTEL MANGEMENT SYSTEM</title>
+    <style>
+    body{
+    background-image: url(https://img.freepik.com/free-photo/modern-luxury-hotel-office-reception-lounge-with-meeting-room_105762-1772.jpg?w=1060&t=st=1672580725~exp=1672581325~hmac=786faa19212dcf39fcfa02c8458cd5ec53afa164dec25a2976a291e6f82fd67a);
+    background-size: cover;
+}
+body > table{
+    width: 80%;
+    margin: 40px auto;
+    background: linear-gradient(-135deg, #512c04c9, #a68a5f);
+}
+table{
+    border-collapse: collapse;
+}
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+  }
+  .container .title::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+table.list{
+    width: 100%;
+}
+td, th{
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px 15px;
+}
+tr:nth-child(even),table.list thead>tr{
+    background-color: #ddd;
+}
+input[type="text"], input[type="number"]{
+    width: 91%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="submit"],input[type="reset"]{
+    background: #eee;
+    padding: 6px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    margin: 15px 0 10px;
+    outline: none;
+}
+input[type="submit"]:hover{
+    background: #f3f3f3;
+}
+
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <center><b>{{message}}</b><center>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<body >
+    <a href="{{url_for('Adminpage')}}"><button>Back</button></a>
+    <table>
+        <tr>
+            <td>
+                <!--HTML form for crud operation-->
+                <form>
+                <div>
+                    <label for="empCode">Student-Id</label>
+                    <select name="name" id="name" >
+                        {% for i in data %}
+                        <option>{{i[0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="submit">
+                </div>
+                </form>
+                <form autocomplete="off" action="{{url_for('checkout')}}" method="POST">
+                    <div>
+                        <label for="fullName">Student-Id</label>
+                        <input type="text" name="empCode" id="empCode" value="{{data1}}" readonly>
+                    </div>
+                    <div>
+                        <label for="fullName">Student Name</label>
+                        <input type="text" name="name"  value="{{details[1]}}" readonly>
+                    </div>
+                    <div>
+                        <label for="fullName">Section</label>
+                        <input type="text" name="section"  value="{{details[2]}}" readonly>
+                    </div>
+                    <div>
+                        <label for="fullName">Roomno</label>
+                        <input type="text" name="roomno"  value="{{details[3]}}" readonly>
+                    </div>
+                    <div>
+                        <label for="salary">Mobile Number</label>
+                        <input type="text" name="mobileno" id="salary" value="{{details[4]}}" readonly>
+                    </div>
+                        <button type="submit">submit</button>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Student-Id</th>
+                            <th>Student-name</th>
+                            <th>Roomno</th>
+                            <th>Section</th>
+                            <th>Phoneno</th>
+                            <th>Check(OUT)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in std_records %}
+                      <tr>
+                          <td>{{i[0]}}</td>
+                          <td>{{i[1]}}</td>
+                          <td>{{i[2]}}</td>
+                          <td>{{i[3]}}</td>
+                          <td>{{i[4]}}</td>
+
+                          {% if i[5]!=None %}
+                          <td>{{i[5]}}</td>
+                          {% else %}
+                          <td><a href='{{url_for("checkoutupdate",date=i[7],id1=i[0])}}'>check out</td></a>
+                          {% endif %}
+                         
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{font-family: Arial, Helvetica, sans-serif;
+       }
+       label{
+           color:bold;
+       }
+       .btnstyle{
+           background-color:#82eb82;
+           padding:8px;
+           border-radius: 5px;
+           border:none;
+           margin: 10px;
+           cursor: pointer;
+           font-weight: bold;
+       }
+       body{
+        background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/24/cb/33/8-bed-mixed-gender-dorm.jpg?w=700&h=-1&s=1");
+        background-size: cover;
+            
+        }
+        .ass{
+            color:rgb(175, 226, 244);
+            margin:25px;
+            font-size: 45px;
+            font-weight: bold;
+        }
+         </style> 
+   
+</head>
+<body>
+  <a href="{{url_for('Adminpage')}}"><button>Back</button></a>
+    <center><h1 class="ass"style="margin-left:58%;; margin-top:3%">Students</h1></center>
+    <div style="margin-left:68%;; margin-top:3%">
+    <form method="POST">
+        <label>Student Id:</label>
+        <p><input placeholder="Enter id" type="number" name="id1" required/></p>
+        <label>Name:</label>
+        <p><input placeholder="Enter Name" type="text" name="name" required/></p>
+        <label>Section:</label>
+        <p><input placeholder="Enter Group name" type="text" name="section" required/></p>
+        <label>Room No:</label>
+        <select name="roomno">
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="103">103</option>
+        <option value="104">104</option>
+        <option value="105">105</option>
+        <option value="106">106</option>
+        <option value="107">107</option>
+        <option value="108">108</option>
+        <option value="109">109</option>
+        <option value="100">100</option>
+        <option value="111">111</option>
+        </select><br><br>
+        <label>Mobile Number</label>
+        <p><input placeholder="Enter Mobile Number" type="number" name="mobile" required/></p>
+        <div class="btn">
+        <a href="{{url_for('studentrecord')}}"><button type="submit" style="border:none;">Add Student</button></a></div>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</body>
+</html>

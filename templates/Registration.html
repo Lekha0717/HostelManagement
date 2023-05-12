@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1e4c81a640.js" crossorigin="anonymous"></script>
+    <title>Registration</title>
+    <style>
+         *{font-family: Arial, Helvetica, sans-serif;
+        }
+        label{
+            color:bold;
+        }
+        .btnstyle{
+            background-color:#42f548;
+            padding:8px;
+            border-radius: 5px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        body{
+            background-image: url("https://img.freepik.com/free-vector/modern-reception-concept-with-flat-design_23-2147993161.jpg?w=2000");
+            background-size: cover;
+            
+        }
+        .ass{
+            color:darkcyan;
+            margin:25px;
+            font-size: 45px;
+            font-weight: bold;
+        }
+        
+    </style> 
+    
+</head>
+
+<body>
+    <center><h1 class="ass"style="margin-left:58%;; margin-top:3%">Admin Registration</h1></center>
+    <div style="margin-left:68%;; margin-top:3%">
+    <form method="POST">
+    <label>Userid:</label><br>
+    <p><input placeholder="Enter userid" type="text" name="userid" required/></p>   
+    <label>Username:</label><br>
+    <p><input placeholder="Enter username" type="text" name="username" required/></p>
+    <label>Password:</label>
+    <p><input placeholder="Enter password" type="Password" name="password" required/></p>
+    <i class='bx bx-lock-alt'></i>
+    <label>Email:</label>
+    <p><input placeholder="Enter email" type="text" name="email" required/></p>
+    <label>passcode:</label>
+    <p><input placeholder="Enter passcode" type="text" name="passcode" required/></p>
+    <button class="btnstyle" type="submit">Register</button></a><br>
+    <a href="{{url_for('login')}}" target="_blank">Already have an Account </a>
+
+
+</form>
+</div>
+</body>
+</html>
