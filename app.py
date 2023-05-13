@@ -78,6 +78,14 @@ def login():
         books=cursor.fetchall()
         cursor.close()
     return render_template('Admin-login.html')
+@app.route('/logout')
+def logout():
+    if session.get('user'):
+        session.pop('user')
+        return redirect(url_for('index'))
+    else:
+        flash('already logged out!')
+        return redirect(url_for('index'))
 @app.route('/validate',methods=['POST'])
 def validate():
     userid=request.form['userid']
@@ -319,6 +327,18 @@ def visitor():
         details=cursor.fetchall()
         mysql.connection.commit()
     return render_template('visitorcheckin.html',data=data,details=details)
+@app.route('/allroomsinfo')
+def allrooms():
+    cursor=mysql.connection.cursor()
+    cursor.execute('select s.roomno,count(*) as count from students as s inner join students as se on s.roomno=se.roomno group by s.roomno')
+    data=cursor.fetchall()
+    cursor.execute('select s.roomno from students as s inner join students as se on s.roomno=se.roomno group by s.roomno')
+    odata=cursor.fetchall()
+    ogdata=set([int(i[0]) for i in odata])
+    room_lst={101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111}
+    vac_rooms=room_lst.difference(ogdata)
+    print(vac_rooms)
+    return render_template('room.html',data=data,vac_rooms=vac_rooms)
 @app.route('/createpassword/<token>',methods=['GET','POST'])
 def createpassword(token):#to create noe password and conform the password
         try:
