@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+         .bg-container{
+            background-image: url("https://img.freepik.com/free-photo/modern-luxury-hotel-office-reception-lounge-with-meeting-room_105762-1772.jpg?w=1060&t=st=1672580725~exp=1672581325~hmac=786faa19212dcf39fcfa02c8458cd5ec53afa164dec25a2976a291e6f82fd67a");
+            background-size: cover;
+            height:100vh;
+            
+
+        }
+    *{font-family: Arial, Helvetica, sans-serif;
+   }
+   label{
+       color:bold;
+   }
+   .btnstyle{
+       background-color:#dde6e2;
+       padding:8px;
+       border-radius: 5px;
+       border:none;
+       margin: 10px;
+       cursor: pointer;
+       font-weight: bold;
+   }
+    .ass{
+            color:rgb(194, 44, 89);
+            margin:25px;
+            font-size: 45px;
+            font-weight: bold;
+        }
+        table.list{
+    width: 100%;
+}
+td, th{
+    border: 1px solid #050505;
+    text-align: left;
+    padding: 8px 15px;
+}
+        
+    </style>
+
+<body>
+<form  method="POST">
+    <div class="bg-container">
+        <form method="POST">
+         
+           <center><h1 style="color:rgb(3, 15, 15); margin-top:5%;">Rooms</h1>
+           <div style="margin-left:1%; margin-top:1%;"></div>
+          <table  border="1px" style="width: 60%; text-align: center; font-size: 20px;">
+          </center>
+   
+    <br>
+    <body>
+        <table>
+        
+            <tr>
+                <th class="head">Roomno</th>
+                <th class="count">Count</th>
+                
+            <tr>
+                {% for i in data %}
+                <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+   {% for i in vac_rooms %}
+   <b>{{i[0]}}</b>
+   {% endfor %}
+</body>
+</html>
